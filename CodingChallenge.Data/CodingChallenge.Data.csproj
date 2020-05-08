@@ -52,7 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\EGeometricShapes.cs" />
+    <Compile Include="Classes\ELanguages.cs" />
     <Compile Include="Classes\FormaGeometrica.cs" />
+    <Compile Include="Classes\GeometricShapeFactory.cs" />
+    <Compile Include="Classes\LanguageFactory.cs" />
+    <Compile Include="Contracts\IGeometricShape.cs" />
+    <Compile Include="Contracts\ILanguage.cs" />
+    <Compile Include="Entities\Circle.cs" />
+    <Compile Include="Entities\Deutsch.cs" />
+    <Compile Include="Entities\English.cs" />
+    <Compile Include="Entities\EquilateralTriangle.cs" />
+    <Compile Include="Entities\GeometricShape.cs" />
+    <Compile Include="Entities\Rectangle.cs" />
+    <Compile Include="Entities\Spanish.cs" />
+    <Compile Include="Entities\Square.cs" />
+    <Compile Include="Entities\Trapeze.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
