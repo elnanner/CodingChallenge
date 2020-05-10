@@ -6,9 +6,7 @@ namespace CodingChallenge.Data.Contracts
     {
         decimal CalculateArea();
         decimal CalculatePerimeter();
-        void SetSide(decimal side);
-        decimal GetArea();
-        decimal GetPerimeter();
         EGeometricShapes GetTypeE();
+
     }
 }

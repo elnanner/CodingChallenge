@@ -6,40 +6,65 @@ namespace CodingChallenge.Data.Entities
 {
     public class EquilateralTriangle : GeometricShape, IGeometricShape
     {
+       #region Constructor
         public EquilateralTriangle() { }
-        public EquilateralTriangle(EGeometricShapes type)
+        public EquilateralTriangle(EGeometricShapes type, decimal side1)
         {
             TypeE = type;
+            Side = side1;
         }
+        #endregion
+
+        #region Public Methods
+
         public decimal CalculateArea()
         {
-            throw new NotImplementedException();
+            return ((decimal)Math.Sqrt(3) / 4) * Side * Side;
         }
 
         public decimal CalculatePerimeter()
         {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetPerimeter()
-        {
-            throw new NotImplementedException();
+            return Side * 3;
         }
 
         public EGeometricShapes GetTypeE()
         {
-            throw new NotImplementedException();
+            return TypeE;
         }
-
-        public void SetSide(decimal side)
+        public decimal GetArea()
         {
-            throw new NotImplementedException();
+            return this.CalculateArea();
         }
 
+        public decimal GetPerimeter()
+        {
+            return this.CalculatePerimeter();
+        }
+        //public void SetBase1(decimal base1)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void SetBase2(decimal base2)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void SetHeight(decimal height)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void SetSide1(decimal side1)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void SetSide2(decimal side2)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        #endregion
     }
 }

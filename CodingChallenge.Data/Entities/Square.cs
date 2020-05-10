@@ -6,40 +6,45 @@ namespace CodingChallenge.Data.Entities
 {
     public class Square : GeometricShape, IGeometricShape
     {
+        #region Constructor
+
         public Square() { }
-        public Square(EGeometricShapes type)
+        public Square(EGeometricShapes type, decimal side1)
         {
             TypeE = type;
+            Side = side1;
         }
+        #endregion
+
+        #region Properties
+        public decimal Side { get; set; }
+        #endregion
+        #region Methods
 
         public decimal CalculateArea()
         {
-            throw new NotImplementedException();
+            return Side * Side;
         }
 
         public decimal CalculatePerimeter()
         {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetPerimeter()
-        {
-            throw new NotImplementedException();
+            return Side * 4;
         }
 
         public EGeometricShapes GetTypeE()
         {
-            throw new NotImplementedException();
+            return TypeE;
+        }
+        public decimal GetArea()
+        {
+            return this.CalculateArea();
         }
 
-        public void SetSide(decimal side)
+        public decimal GetPerimeter()
         {
-            throw new NotImplementedException();
+            return this.CalculatePerimeter();
         }
+        #endregion
+
     }
 }

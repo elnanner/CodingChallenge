@@ -6,40 +6,55 @@ namespace CodingChallenge.Data.Entities
 {
     public class Trapeze : GeometricShape, IGeometricShape
     {
+        #region Constrctor
+
         public Trapeze() { }
-        public Trapeze(EGeometricShapes type)
+        public Trapeze(EGeometricShapes type, decimal side1, decimal? side2 = 0, decimal? base1 = 0, decimal? base2 = 0, decimal? height = 0)
         {
             TypeE = type;
+            Side = side1;
+            Side2 = (decimal)side2;
+            Base1 = (decimal)base1;
+            Base2 = (decimal)base2;
+            Height = (decimal)height;
         }
+
+        #endregion
+
+        #region Properties
+        public decimal Side2 { get; set; }
+        public decimal Base1 { get; set; }
+        public decimal Base2 { get; set; }
+        public decimal Height { get; set; }
+        #endregion
+
+        #region Public Methods
+
         public decimal CalculateArea()
         {
-            throw new NotImplementedException();
+            return Height * ((Base1 + Base2) / 2);
         }
 
         public decimal CalculatePerimeter()
         {
-            throw new NotImplementedException();
+            return Base1 + Base2 + Side + Side2;
         }
 
+
+        public EGeometricShapes GetTypeE()
+        {
+            return TypeE;
+        }
         public decimal GetArea()
         {
-            throw new NotImplementedException();
+            return this.CalculateArea();
         }
 
         public decimal GetPerimeter()
         {
-            throw new NotImplementedException();
+            return this.CalculatePerimeter();
         }
-
-        public EGeometricShapes GetTypeE()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetSide(decimal side)
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
 
     }
 }

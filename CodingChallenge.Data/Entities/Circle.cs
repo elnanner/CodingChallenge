@@ -6,34 +6,29 @@ namespace CodingChallenge.Data.Entities
 {
     public class Circle : GeometricShape, IGeometricShape
     {
-        public Circle() { }
-        public Circle(EGeometricShapes type)
+        public Circle(EGeometricShapes type, decimal side1)
         {
             TypeE = type;
+            Side = side1;
+            Area = CalculateArea();
+            Perimeter = CalculatePerimeter();
+        }
+
+        #region Methods
+
+        private decimal GetRatio()
+        {
+            return Side / 2;
         }
         public decimal CalculateArea()
         {
-            return Convert.ToDecimal((decimal)Math.PI * (side * side));
+            decimal ratio = this.GetRatio();
+            return Convert.ToDecimal((decimal)Math.PI * (ratio * ratio));
         }
 
         public decimal CalculatePerimeter()
         {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetArea()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal GetPerimeter()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetSide(decimal side)
-        {
-            this.side = side;
+            return Convert.ToDecimal((decimal)Math.PI * Side);
         }
 
         public EGeometricShapes GetTypeE()
@@ -41,6 +36,6 @@ namespace CodingChallenge.Data.Entities
             return TypeE;
         }
 
-       
+        #endregion
     }
 }

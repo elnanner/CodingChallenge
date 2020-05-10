@@ -1,45 +1,81 @@
-﻿using CodingChallenge.Data.Contracts;
+﻿using CodingChallenge.Data.Classes;
+using CodingChallenge.Data.Contracts;
 using System;
-using CodingChallenge.Data.Classes;
 
 namespace CodingChallenge.Data.Entities
 {
     public class Rectangle : GeometricShape, IGeometricShape
     {
+
+        #region Constrctor
+
         public Rectangle() { }
-        public Rectangle(EGeometricShapes type)
+        public Rectangle(EGeometricShapes type, decimal side1, decimal? height = 0)
         {
             TypeE = type;
+            Side = side1;// corresponde a la base
+            Height = (decimal)height;
         }
+
+        #endregion
+
+        #region Properties
+
+        public decimal Height { get; set; }
+
+        #endregion
+
+        #region Public Methods
 
         public decimal CalculateArea()
         {
-            throw new NotImplementedException();
+            return (Side) * Height;
         }
 
         public decimal CalculatePerimeter()
         {
-            throw new NotImplementedException();
+            return 2 *  (Side + Height);
         }
 
+
+        public EGeometricShapes GetTypeE()
+        {
+            return TypeE;
+        }
         public decimal GetArea()
         {
-            throw new NotImplementedException();
+            return this.CalculateArea();
         }
 
         public decimal GetPerimeter()
         {
-            throw new NotImplementedException();
+            return this.CalculatePerimeter();
         }
+        //public void SetBase1(decimal base1)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public EGeometricShapes GetTypeE()
-        {
-            throw new NotImplementedException();
-        }
+        //public void SetBase2(decimal base2)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public void SetSide(decimal side)
-        {
-            throw new NotImplementedException();
-        }
+        //public void SetHeight(decimal height)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void SetSide1(decimal side1)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void SetSide2(decimal side2)
+        //{
+        //    throw new NotImplementedException();
+        //}
+        #endregion
+
     }
 }

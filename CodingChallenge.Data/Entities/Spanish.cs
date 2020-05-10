@@ -1,5 +1,9 @@
 ﻿using CodingChallenge.Data.Contracts;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace CodingChallenge.Data.Entities
 {
@@ -19,21 +23,46 @@ namespace CodingChallenge.Data.Entities
         {
             throw new NotImplementedException();
         }
-        public string GetCount(GeometricShape shape)
+        public string PrintCount(GeometricShape shape)
         {
             switch (shape.TypeE)
             {
                 case Classes.EGeometricShapes.Circle:
-                    return "Cantidad: " + shape.Count + " " + (shape.Count == 1 ? "Circulo" : "Circulos");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Circulo" : "Circulos");
                 case Classes.EGeometricShapes.EquilateralTriangle:
-                    return "Cantidad: " + shape.Count + " " + (shape.Count == 1 ? "Triangulo Equilatero" : "Triangulos Equilateros");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Triangulo Equilatero" : "Triangulos Equilateros");
                 case Classes.EGeometricShapes.Square:
-                    return "Cantidad: " + shape.Count + " " + (shape.Count == 1 ? "Cuadrad" : "Cuadrados");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Cuadrad" : "Cuadrados");
                 case Classes.EGeometricShapes.Trapeze:
-                    return "Cantidad: " + shape.Count + " " + (shape.Count == 1 ? "Trapezoide" : "Trapezoides");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Trapezoide" : "Trapezoides");
+                case Classes.EGeometricShapes.Rectangle:
+                    return  shape.Count + " " + (shape.Count == 1 ? "Rectangulo" : "Rectangulos");
+                    
                 default:
                     return "";
             }
+        }
+
+        public string PrintArea(GeometricShape shape)
+        {
+            return $"Area: {shape.Area:#.##} <br/>";
+        }
+
+        public string PrintPerimeter(GeometricShape shape)
+        {
+            return $"Perimetro: {shape.Perimeter:#.##} <br/>";
+        }
+
+        public string PrintFooter(IDictionary<IGeometricShape, decimal> shapes)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("TOTAL:<br/>");
+            sb.Append($" {shapes.Count} formas ");
+            sb.Append($" Perimetro: {shapes.Sum(x=>x.Key.CalculatePerimeter()):#.##} ");
+            sb.Append($" Area: {shapes.Sum(x=>x.Key.CalculateArea()):#.##} ");
+
+            return sb.ToString();
         }
     }
 }

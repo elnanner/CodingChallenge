@@ -1,4 +1,5 @@
 ﻿using CodingChallenge.Data.Entities;
+using System.Collections.Generic;
 
 namespace CodingChallenge.Data.Contracts
 {
@@ -7,6 +8,9 @@ namespace CodingChallenge.Data.Contracts
         string Print();
         string GetEmpty();
         string GetTitle();
-        string GetCount(GeometricShape shape);
+        string PrintCount(GeometricShape shape);
+        string PrintArea(GeometricShape shape);
+        string PrintPerimeter(GeometricShape shape);
+        string PrintFooter(IDictionary<IGeometricShape, decimal> shapes);
     }
 }

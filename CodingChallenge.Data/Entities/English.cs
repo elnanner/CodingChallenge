@@ -1,5 +1,8 @@
 ﻿using CodingChallenge.Data.Contracts;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace CodingChallenge.Data.Entities
 {
@@ -20,7 +23,7 @@ namespace CodingChallenge.Data.Entities
             throw new NotImplementedException();
         }
 
-        public string GetCount(GeometricShape shape)
+        public string PrintCount(GeometricShape shape)
         {
             switch (shape.TypeE)
             {
@@ -32,9 +35,33 @@ namespace CodingChallenge.Data.Entities
                     return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Square" : "Squares");
                 case Classes.EGeometricShapes.Trapeze:
                     return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Trapeze" : "Trapezoids");
+                case Classes.EGeometricShapes.Rectangle:
+                    return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Rectangle" : "Rectangles");
                 default:
                     return "";
             }
+        }
+
+        public string PrintArea(GeometricShape shape)
+        {
+            return $"Area: {shape.Area:#.##} <br/>";
+        }
+
+        public string PrintPerimeter(GeometricShape shape)
+        {
+            return $"Perimeter: {shape.Perimeter:#.##} <br/>";
+        }
+
+        public string PrintFooter(IDictionary<IGeometricShape, decimal> shapes)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("TOTAL:<br/>");
+            sb.Append($" {shapes.Count} shapes ");
+            sb.Append($" Perimeter: {shapes.Sum(x => x.Key.CalculatePerimeter()):#.##} ");
+            sb.Append($" Area: {shapes.Sum(x => x.Key.CalculateArea()):#.##} ");
+
+            return sb.ToString();
         }
     }
 }
