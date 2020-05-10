@@ -69,9 +69,9 @@ namespace CodingChallenge.Data.Classes
         {
             var sb = new StringBuilder();
 
-            foreach (var shape in cantShapesAreas.GroupBy(x => x.Key.GetTypeE()).Select(x => new GeometricShape { TypeE = x.First().Key.GetTypeE(), Count = x.Count(), Area = x.First().Key.CalculateArea(), Perimeter = x.First().Key.CalculatePerimeter()}))
+            foreach (var shape in cantShapesAreas.GroupBy(x => x.Key.GetTypeE()).Select(x => new GeometricShape { TypeE = x.First().Key.GetTypeE(), Count = x.Count(), Area = x.Sum(a=>a.Key.CalculateArea()), Perimeter = x.Sum(a => a.Key.CalculatePerimeter())/*x.First().Key.CalculatePerimeter()*/}))
             {
-                sb.AppendLine(TraducirForma(shape, idioma));
+                sb.Append(TraducirForma(shape, idioma));
             }
 
             return sb.ToString();

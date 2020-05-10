@@ -27,15 +27,15 @@ public class Deutsch : ILanguage
         switch (shape.TypeE)
         {
             case EGeometricShapes.Circle:
-                return "Menge: " + shape.Count + " " + (shape.Count == 1 ? "Kreis" : "Kreise");
+                return shape.Count + " " + (shape.Count == 1 ? "Kreis" : "Kreise");
             case EGeometricShapes.EquilateralTriangle:
-                return "Menge: " + shape.Count + " " + (shape.Count == 1 ? "Gleichseitiges Dreieck" : "Gleichseitiges Dreiecke");
+                return shape.Count + " " + (shape.Count == 1 ? "Gleichseitiges Dreieck" : "Gleichseitiges Dreiecke");
             case EGeometricShapes.Square:
-                return "Menge: " + shape.Count + " " + (shape.Count == 1 ? "Cuadrad" : "Cuadrados");
+                return shape.Count + " " + (shape.Count == 1 ? "Quadrat" : "Quadrate");
             case EGeometricShapes.Trapeze:
-                return "Menge: " + shape.Count + " " + (shape.Count == 1 ? "Trapezoide" : "Trapezoides");
+                return shape.Count + " " + (shape.Count == 1 ? "Trapezoide" : "Trapezoides");
             case EGeometricShapes.Rectangle:
-                return "Menge: " + shape.Count + " " + (shape.Count == 1 ? "Rechteck" : "Rechteckes");
+                return shape.Count + " " + (shape.Count == 1 ? "Rechteck" : "Rechteckes");
             default:
                 return "";
         }
@@ -43,7 +43,7 @@ public class Deutsch : ILanguage
 
     public string PrintArea(GeometricShape shape)
     {
-        return $"Bereich: {shape.Area:#.##} <br/>";
+        return $"Bereich: {shape.Area:#.##}";
     }
 
     public string PrintPerimeter(GeometricShape shape)
@@ -55,10 +55,10 @@ public class Deutsch : ILanguage
     {
         StringBuilder sb = new StringBuilder();
 
-        sb.Append("Insgesamt:<br/>");
-        sb.Append($" {shapes.Count} shapes ");
-        sb.Append($" Umfang: {shapes.Sum(x => x.Key.CalculatePerimeter()):#.##} ");
-        sb.Append($" Bereich: {shapes.Sum(x => x.Key.CalculateArea()):#.##} ");
+        sb.Append("<br/>Insgesamt:<br/>");
+        sb.Append($"{shapes.Count} shapes ");
+        sb.Append($"Umfang: {shapes.Sum(x => x.Key.CalculatePerimeter()):#.##} ");
+        sb.Append($"Bereich: {shapes.Sum(x => x.Key.CalculateArea()):#.##}");
 
         return sb.ToString();
     }

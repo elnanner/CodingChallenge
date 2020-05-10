@@ -28,15 +28,15 @@ namespace CodingChallenge.Data.Entities
             switch (shape.TypeE)
             {
                 case Classes.EGeometricShapes.Circle:
-                    return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Circle" : "Circles");
+                    return shape.Count + " " + (shape.Count == 1 ? "Circle" : "Circles");
                 case Classes.EGeometricShapes.EquilateralTriangle:
-                    return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Equilateral triangle" : "Equilateral triangles");
+                    return shape.Count + " " + (shape.Count == 1 ? "Equilateral triangle" : "Equilateral Triangles");
                 case Classes.EGeometricShapes.Square:
-                    return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Square" : "Squares");
+                    return shape.Count + " " + (shape.Count == 1 ? "Square" : "Squares");
                 case Classes.EGeometricShapes.Trapeze:
-                    return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Trapeze" : "Trapezoids");
+                    return shape.Count + " " + (shape.Count == 1 ? "Trapeze" : "Trapezoids");
                 case Classes.EGeometricShapes.Rectangle:
-                    return "Count: " + shape.Count + " " + (shape.Count == 1 ? "Rectangle" : "Rectangles");
+                    return shape.Count + " " + (shape.Count == 1 ? "Rectangle" : "Rectangles");
                 default:
                     return "";
             }
@@ -44,7 +44,7 @@ namespace CodingChallenge.Data.Entities
 
         public string PrintArea(GeometricShape shape)
         {
-            return $"Area: {shape.Area:#.##} <br/>";
+            return $"Area: {shape.Area:#.##}";
         }
 
         public string PrintPerimeter(GeometricShape shape)
@@ -56,10 +56,10 @@ namespace CodingChallenge.Data.Entities
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("TOTAL:<br/>");
-            sb.Append($" {shapes.Count} shapes ");
-            sb.Append($" Perimeter: {shapes.Sum(x => x.Key.CalculatePerimeter()):#.##} ");
-            sb.Append($" Area: {shapes.Sum(x => x.Key.CalculateArea()):#.##} ");
+            sb.Append("<br/>TOTAL:<br/>");
+            sb.Append($"{shapes.Count} shapes ");
+            sb.Append($"Perimeter: {shapes.Sum(x => x.Key.CalculatePerimeter()):#.##} ");
+            sb.Append($"Area: {shapes.Sum(x => x.Key.CalculateArea()):#.##}");
 
             return sb.ToString();
         }

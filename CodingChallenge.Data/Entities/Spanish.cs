@@ -28,11 +28,11 @@ namespace CodingChallenge.Data.Entities
             switch (shape.TypeE)
             {
                 case Classes.EGeometricShapes.Circle:
-                    return  shape.Count + " " + (shape.Count == 1 ? "Circulo" : "Circulos");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Círculo" : "Círculos");
                 case Classes.EGeometricShapes.EquilateralTriangle:
-                    return  shape.Count + " " + (shape.Count == 1 ? "Triangulo Equilatero" : "Triangulos Equilateros");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Triangulo Equilatero" : "Triángulos Equilateros");
                 case Classes.EGeometricShapes.Square:
-                    return  shape.Count + " " + (shape.Count == 1 ? "Cuadrad" : "Cuadrados");
+                    return  shape.Count + " " + (shape.Count == 1 ? "Cuadrado" : "Cuadrados");
                 case Classes.EGeometricShapes.Trapeze:
                     return  shape.Count + " " + (shape.Count == 1 ? "Trapezoide" : "Trapezoides");
                 case Classes.EGeometricShapes.Rectangle:
@@ -45,7 +45,7 @@ namespace CodingChallenge.Data.Entities
 
         public string PrintArea(GeometricShape shape)
         {
-            return $"Area: {shape.Area:#.##} <br/>";
+            return $"Area: {shape.Area:#.##}";
         }
 
         public string PrintPerimeter(GeometricShape shape)
@@ -57,10 +57,10 @@ namespace CodingChallenge.Data.Entities
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("TOTAL:<br/>");
-            sb.Append($" {shapes.Count} formas ");
-            sb.Append($" Perimetro: {shapes.Sum(x=>x.Key.CalculatePerimeter()):#.##} ");
-            sb.Append($" Area: {shapes.Sum(x=>x.Key.CalculateArea()):#.##} ");
+            sb.Append("<br/>TOTAL:<br/>");
+            sb.Append($"{shapes.Count} formas ");
+            sb.Append($"Perimetro: {shapes.Sum(x=>x.Key.CalculatePerimeter()):#.##} ");
+            sb.Append($"Area: {shapes.Sum(x=>x.Key.CalculateArea()):#.##}");
 
             return sb.ToString();
         }
